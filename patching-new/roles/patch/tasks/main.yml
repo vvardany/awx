@@ -14,7 +14,7 @@
   shell: "sleep 5 && reboot"
   async: 1
   poll: 0
-#  when: update_result is changed
+  when: update_result is changed
 
 - name: Wait for the reboot
   wait_for_connection:
@@ -22,7 +22,7 @@
     sleep: 5
     delay: 5
     timeout: 300
-#  when: update_result is changed
+  when: update_result is changed
 
 - name: Starting httpd
   service: 
@@ -35,3 +35,6 @@
     port: 80 
     delay: 3 
     timeout: 300
+
+- name: Echo some variable
+  shell: echo {{ some_var }}
