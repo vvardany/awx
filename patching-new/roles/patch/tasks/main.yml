@@ -37,4 +37,4 @@
     timeout: 300
 
 - name: Echo some variable
-  shell: echo {{ some_var }}
+  shell: echo "{{ some_var }}" | tee /tmp/some_var_file
