@@ -10,7 +10,7 @@
     state: latest
   register: update_result
 
-  block:
+- block:
     - name: Reboot if there was a change
       shell: "sleep 5 && reboot"
       async: 1
