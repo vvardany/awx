@@ -37,7 +37,7 @@
     timeout: 300
 
 - name: Pinging from Ansible server to {{ inventory_hostname }}
-  shell: hostname && ping -c 3 "{{ ansible_default_ipv4.address }}"
+  shell: hostname && ping -c 3 ansible_default_ipv4.address 
   delegate_to: localhost 
     
 - name: Echo some variable
