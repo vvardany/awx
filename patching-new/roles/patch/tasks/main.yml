@@ -38,6 +38,7 @@
 
 - name: Pinging from Ansible server to {{ inventory_hostname }}
   shell: hostname && ping -c 3 {{ ansible_default_ipv4.address }}
+  when: inventory_hostname == ansible_play_hosts[0]
   delegate_to: localhost 
     
 - name: Echo some variable
