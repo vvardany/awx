@@ -36,5 +36,9 @@
     delay: 3 
     timeout: 300
 
+- name: Pinging from Ansible server to {{ inventory_hostname }}
+  shell: ping -c 3 {{ inventory_hostname }}
+  delegate_to: localhost 
+    
 - name: Echo some variable
   shell: echo "{{ some_var }}" | tee /tmp/some_var_file
