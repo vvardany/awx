@@ -43,7 +43,7 @@
 
 - name: Printing some text here
   debug:
-    msg: "{{ update_result.rc.results }}"
+    msg: "{{ update_result.results }}"
   when: inventory_hostname == ansible_play_hosts[0]
     
 - name: Echo some variable
