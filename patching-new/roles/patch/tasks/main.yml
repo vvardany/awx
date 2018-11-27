@@ -38,8 +38,13 @@
 
 - name: Pinging from Ansible server to {{ inventory_hostname }}
   shell: hostname && ping -c 3 {{ ansible_default_ipv4.address }}
-  when: inventory_hostname != ansible_play_hosts[0]
+  when: inventory_hostname = ansible_play_hosts[0]
   delegate_to: localhost 
+
+- name: Printing some text here
+  debug:
+    msg: "{{ update_result }}"
+  when: inventory_hostname = ansible_play_hosts[0]
     
 - name: Echo some variable
   shell: echo "{{ some_var }}" | tee /tmp/some_var_file
