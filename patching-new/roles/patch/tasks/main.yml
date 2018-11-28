@@ -48,3 +48,9 @@
     
 - name: Echo some variable
   shell: echo "{{ some_var }}" | tee /tmp/some_var_file
+
+- debug: msg="Cheking some_var is Hello"
+  when: some_var == "Hello"
+- fail: msg="Cheking some_var is not Hello"
+  when: eventcode.stdout != "Hello"
+
