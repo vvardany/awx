@@ -52,5 +52,5 @@
 - debug: msg="Cheking some_var is Hello"
   when: some_var == "Hello"
 - fail: msg="Cheking some_var is not Hello"
-  when: eventcode.stdout != "Hello"
+  when: some_var != "Hello"
 
